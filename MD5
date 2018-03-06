@@ -1,11 +1,11 @@
-55790bf5d36d6936c77d44a928faff98 *DESCRIPTION
+7e38a804c2ac872f5de67a6a61d8e053 *DESCRIPTION
 ac51a792a801f16c063f9337335430f5 *NAMESPACE
 94e7f426ca0258533b6ddbabccbff076 *R/algorithms.R
 3f6684420198524a986768f3c9ca6c97 *R/praznik.R
 55111f2f5db53b31076b80c3ee1e1548 *R/pure.R
 881cc1b385d0d29d487adb7c959f6de7 *R/scorers.R
 f0e6690602fd85fcf3a790babaab8a55 *data/MadelonD.rda
-b909b416401d5da3315c41f726500787 *inst/NEWS
+4bc0821017aff6d8675919fcecb70fea *inst/NEWS
 503c75d782af4c4985451ed4531f85bb *man/CMIM.Rd
 f5caab784b2d6a45a60a5c03f4e96677 *man/DISR.Rd
 5730136d462249a0b85546d7163adfbf *man/JMI.Rd
@@ -32,10 +32,10 @@ e6be79d2eaaadd392d4d65b58ad00b88 *src/mi.h
 f37d55ec5b1e8bb82f2d077a5959aaa5 *src/mrmr.h
 998aa7c660779bc008da1b9ec266a0ff *src/njmim.h
 b0dff472c00df14e5877b9ee71176c65 *src/praznik.c
-814bb6639a7b307a8fc032fa05fc68f4 *src/shared.h
+cab27c9425ddfa298575208bb397b51f *src/shared.h
 60a1141413dfc503a8ce8513f89a9ce1 *src/side.h
 b1b2585444c12bf7a417eb3f761a8d27 *tests/testthat.R
 e46473494d1a17582e18a1e41c60a9f3 *tests/testthat/test-engine.R
-514fc6dc57f9a693683b98c683a6e036 *tests/testthat/test-input.R
+81e39998ed1d8bf0a4006831b711a7aa *tests/testthat/test-input.R
 1d6de7abf98b6e0a3603a8dfd41d4815 *tests/testthat/test-madelon.R
 4e2ebe50f29bfa0f9a9b98ef8d60fa41 *tests/testthat/test-native-pure.R
