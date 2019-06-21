@@ -13,7 +13,7 @@
 #' \deqn{J_{MIM}=I(X;Y).}
 #'
 #' The minimal conditional mutual information maximisation proposed by F. Fleauret, \code{\link{CMIM}}, uses
-#' \deqn{J_{CMIM}(X)=\min_{W\in S} I(X;Y|W);}
+#' \deqn{J_{CMIM}(X)=\min(I(X;Y),\min_{W\in S} I(X;Y|W));}
 #' this method is also effectively identical to the information fragments method.
 #' 
 #' The minimum redundancy maximal relevancy proposed by H. Peng et al., \code{\link{MRMR}}, uses
@@ -78,18 +78,3 @@ NULL
 #' Features are in the same order as in the original data; the names of relevant ones start with \code{Rel}, while of irrelevant ones with \code{Irr}.
 #' @source \url{https://archive.ics.uci.edu/ml/datasets/Madelon}
 "MadelonD"
-
-# Utilities
-
-#' Control OpenMP thread count
-#'
-#' Does nothing, left to provide warnings to an old code.
-#' @param threads Ignored.
-#' @return Invisible \code{NULL}.
-#' @note Since praznik 4.0, please use \code{threads} argument of particular algorithm function to control how many threads it will use.
-#' @export
-setOmpThreads<-function(threads){
- warning("setOmpThreads() is deprecated and does nothing; please use the 'threads' argument!")
- invisible(NULL)
-}
- 

@@ -20,7 +20,7 @@ The mutual information maximisation filter, \code{\link{MIM}}, simply selects to
 \deqn{J_{MIM}=I(X;Y).}
 
 The minimal conditional mutual information maximisation proposed by F. Fleauret, \code{\link{CMIM}}, uses
-\deqn{J_{CMIM}(X)=\min_{W\in S} I(X;Y|W);}
+\deqn{J_{CMIM}(X)=\min(I(X;Y),\min_{W\in S} I(X;Y|W));}
 this method is also effectively identical to the information fragments method.
 
 The minimum redundancy maximal relevancy proposed by H. Peng et al., \code{\link{MRMR}}, uses
@@ -72,8 +72,8 @@ In a present version, praznik includes \code{\link{impScores}} for generating va
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/mbq/praznik}
-  \item Report bugs at \url{https://github.com/mbq/praznik/issues}
+  \item \url{https://gitlab.com/mbq/praznik}
+  \item Report bugs at \url{https://gitlab.com/mbq/praznik/issues}
 }
 
 }
