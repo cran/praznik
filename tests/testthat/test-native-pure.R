@@ -125,6 +125,32 @@ test_that("jmi behaves properly",{
   )
 })
 
+test_that("max jmi behaves properly",{
+ sapply(X,function(z) jmiScores(X,Y,z))->m
+ diag(m)<-0
+ expect_equal(
+  apply(m,2,max), # by col also checks symmetry
+  maxJmiScores(X,Y)
+ )
+})
+
+test_that("max cmi behaves properly",{
+ sapply(X,function(z) cmiScores(X,Y,z))->m
+ diag(m)<-NA
+ expect_equal(
+  apply(m,1,max,na.rm=TRUE),
+  maxCmiScores(X,Y)
+ )
+ expect_equal(
+  apply(m,1,min,na.rm=TRUE),
+  minCmiScores(X,Y)
+ )
+ expect_equal(
+  apply(m,1,range,na.rm=TRUE),
+  minMaxCmiScores(X,Y)
+ )
+})
+
 test_that("multithread tie breaking is stable",{
  if(.Machine$sizeof.pointer!=8) skip("Unstable on i386")
  for(met in sapply(algos,get))
