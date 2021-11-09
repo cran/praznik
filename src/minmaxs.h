@@ -1,5 +1,3 @@
-//TODO: Rename this file
-
 SEXP C_max_jmi(SEXP X,SEXP Y,SEXP Threads){
  int n,m,ny,*y,*nx,**x,nt;
  struct ht **hta;
@@ -27,8 +25,11 @@ SEXP C_max_jmi(SEXP X,SEXP Y,SEXP Threads){
     int nxz=fillHt(ht,n,nx[a],x[a],nx[b],x[b],xz,NULL,NULL,1);
     fillHt(ht,n,ny,y,nxz,xz,NULL,NULL,cXZ,0);
     double s=miHt(ht,cY,cXZ);
-    if(s>score[a]) score[a]=s;
-    if(s>score[b]) score[b]=s;
+    #pragma omp critical
+    {
+     if(s>score[a]) score[a]=s;
+     if(s>score[b]) score[b]=s;
+    }
    }
   }
  }
@@ -40,8 +41,7 @@ SEXP C_max_jmi(SEXP X,SEXP Y,SEXP Threads){
  return(Ans);
 }
 
-//TODO: Adjust function name
-SEXP C_max_cmi(SEXP X,SEXP Y,SEXP Threads){
+SEXP C_minmax_cmi(SEXP X,SEXP Y,SEXP Threads){
  int n,m,ny,*y,*nx,**x,nt;
  struct ht **hta;
  prepareInput(X,Y,R_NilValue,Threads,&hta,&n,&m,NULL,&y,&ny,&x,&nx,&nt);
@@ -79,8 +79,11 @@ SEXP C_max_cmi(SEXP X,SEXP Y,SEXP Threads){
     int nxz=fillHt(ht,n,nx[e],x[e],nx[ez],x[ez],xz,NULL,NULL,1);
     fillHt(ht,n,nxz,xz,nyz,yz,NULL,cXZ,NULL,0);
     double s=cmiHt(ht,cXZ,cYZ,yz2z,cZ);
-    if(s>score[2*e+1]) score[2*e+1]=s;
-    if(s<score[2*e]) score[2*e]=s; 
+    #pragma omp critical 
+    {
+     if(s>score[2*e+1]) score[2*e+1]=s;
+     if(s<score[2*e]) score[2*e]=s; 
+    }
    }
   }
  }

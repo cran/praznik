@@ -73,7 +73,7 @@ MRMR<-function(X,Y,k=if(positive) ncol(X) else 3,positive=FALSE,threads=0)
 #' \deqn{J(X)=\sum_{W\in S} I(X,W;Y),}
 #' where \eqn{S} is the set of already selected features.
 #' @note \code{\link{DISR}} is a normalised version of JMI; \code{\link{JMIM}} and \code{\link{NJMIM}} are modifications of JMI and DISR in which minimal joint information over already selected features is used instead of a sum.
-#' @references "Data Visualization and Feature Selection: New Algorithms for Nongaussian Data H. Yang and J. Moody, NIPS (1999)
+#' @references "Data Visualization and Feature Selection: New Algorithms for Nongaussian Data" H. Yang and J. Moody, NIPS (1999)
 #' @template input
 #' @template y
 #' @template k
@@ -83,6 +83,25 @@ MRMR<-function(X,Y,k=if(positive) ncol(X) else 3,positive=FALSE,threads=0)
 #' @export
 JMI<-function(X,Y,k=3,threads=0)
  .Call(C_JMI,X,Y,as.integer(k),as.integer(threads))
+
+#' Third-order joint mutual information filter
+#'
+#' The method starts with two features: \eqn{X_1} of a maximal mutual information with the decision \eqn{Y}, and \eqn{X_2} of a maximal value of \eqn{I(X_1,X_2;Y)}, as would be selected second by a regular \code{\link{JMI}}.
+#' Then, it greedily adds feature \eqn{X} with a maximal value of the following criterion:
+#' \deqn{J(X)=\frac{1}{2}\sum_{(U,W)\in S^2; U\neq W} I(X,U,W;Y),}
+#' where \eqn{S} is the set of already selected features.
+#' @note This method has a complexity of \eqn{O(k^2\cdot m \cdot n)}, while other filters have \eqn{O(k\cdot m \cdot n)} --- for larger \eqn{k}, it will be substantially slower.
+#' In the original paper, special shrinkage estimator of MI is used; in praznik, all algorithms use ML estimators, so is \code{JMI3}.
+#' @references "Efficient feature selection using shrinkage estimators" K. Sechidis, L. Azzimonti, A. Pocock, G. Corani, J. Weatherall and G. Brown. Machine Learning, 108 (8-9), pp. 1261-1286 (2019)
+#' @template input
+#' @template y
+#' @template k
+#' @template output
+#' @examples \dontrun{data(MadelonD)
+#' JMI3(MadelonD$X,MadelonD$Y,20)}
+#' @export
+JMI3<-function(X,Y,k=3,threads=0)
+ .Call(C_JMI3,X,Y,as.integer(k),as.integer(threads))
 
 #' Double input symmetrical relevance filter
 #'

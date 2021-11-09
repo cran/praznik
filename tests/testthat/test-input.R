@@ -189,3 +189,17 @@ test_that("triScores throws on too narrow input",{
  expect_error(triScores(iris[,1:2]),"Cannot process")
  expect_error(triScores(iris[1:2,rep(1,2346)]),"Too many features")
 })
+
+test_that("JMI3 works with k=1",{
+ expect_equal(
+  pureJMI3(iris[,-5],iris[,5],k=1),
+  JMI3(iris[,-5],iris[,5],k=1)
+ )
+})
+
+test_that("JMI3 works with k=2",{
+ expect_equal(
+  pureJMI3(iris[,-5],iris[,5],k=2),
+  JMI3(iris[,-5],iris[,5],k=2)
+ )
+})

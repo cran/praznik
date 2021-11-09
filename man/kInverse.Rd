@@ -26,3 +26,6 @@ This function cannot assert that the order is correct.
 \examples{
 kInverse(kTransform(1:7))
 }
+\references{
+Kendall transformation M.B. Kursa, arXiv:2006.15991 (2020).
+}

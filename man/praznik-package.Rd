@@ -4,11 +4,12 @@
 \name{praznik-package}
 \alias{praznik}
 \alias{praznik-package}
-\title{Collection of Information-Based Feature Selection Filters}
+\title{Tools for information-based feature selection and scoring}
 \description{
-Praznik is a collection of feature selection filters performing greedy optimisation of mutual information-based usefulness criteria.
+Praznik is a collection of tools for information theory-based feature selection and scoring.
 }
 \details{
+The first part of the package consists of efficient implementations of several popular information filters, feature selection approaches based on greedy optimisation of certain feature inclusion criterion.
 In a nutshell, an algorithm of this class requires an information system \eqn{(X,Y)} and a predefined number of features to selected \eqn{k}, and works like this.
 To start, it estimates mutual information between each feature and the decision, find a feature with maximal such score and stores it as a first on a list of selected features, \eqn{S}.
 Then, it estimates a value of a certain criterion function \eqn{J(X,Y,S)} for each feature \eqn{X}; this function also depends on \eqn{Y} and the set of already selected features \eqn{S}.
@@ -38,9 +39,19 @@ The minimal joint mutual information maximisation filter by M. Bennasar, Y. Hick
 The minimal normalised joint mutual information maximisation filter by the same authors, \code{\link{NJMIM}}, uses
 \deqn{J_{NJMIM}=\min_{W\in S} \frac{I(X,W;Y)}{H(X,W,Y)}.}
 
+The third-order joint mutual information filter by Sechidis et al., \code{\link{JMI3}}, uses
+\deqn{J(X)=\frac{1}{2}\sum_{(U,W)\in S^2; U\neq W} I(X,U,W;Y).}
+
 While \code{\link{CMIM}}, \code{\link{JMIM}} and \code{\link{NJMIM}} consider minimal value over already selected features, they may use a somewhat more sophisticated and faster algorithm.
 
-The package also provides functions for scoring features.
+The second part of the package provides methods for scoring features, useful on its own as well as building blocks for more sophisticated algorithms.
+In particular, the package exposes the following functions:
+
+\code{\link{hScores}} returns 
+\deqn{H(X).}
+
+\code{\link{jhScores}} returns 
+\deqn{H(X,Y).}
 
 \code{\link{miScores}} returns 
 \deqn{I(X;Y).}
@@ -54,11 +65,22 @@ The package also provides functions for scoring features.
 \code{\link{njmiScores}} returns
 \deqn{\frac{I(X,Z;Y)}{H(X,Y,Z)}.}
 
-These function have also their \code{*Matrix} counterparts, which efficiently build a matrix of scores between all pairs of features.
+\code{\link{minCmiScores}}, \code{\link{maxCmiScores}} and \code{\link{minMaxCmiScores}} return
+\deqn{\min_j I(X_i;Y|X_j)} and/or \deqn{\max_j I(X_i;Y|X_j).}
+
+\code{\link{maxJmiScores}} returns
+\deqn{\max_{j\neq i} I(X_i,X_j;Y).}
+
+\code{\link{triScores}} returns, for every triple of features,
+\deqn{I(X_i;X_j;X_k).}
+
+These function generally also have their \code{*Matrix} counterparts, which efficiently build a matrix of scores between all pairs of features.
 This is especially useful for network inference tasks.
 
 Estimation of mutual information and its generalisations is a hard task; still, praznik aims at speed and simplicity and hence only offers basic, maximum likelihood estimator applicable on discrete data.
 For convenience, praznik automatically and silently coerces non-factor inputs into about ten equally-spaced bins, following the heuristic often used in literature.
+
+Furthermore, praznik provides \code{\link{kTransform}} function for converting continuous features into discrete ones with Kendall transformation, a novel approach based on Kendall correlation coefficient which allows for multivariate reasoning based on monotonicity agreement.
 
 Additionally, praznik has a limited, experimental support for replacing entropic statistics with Gini impurity-based; in such framework, entropy is replaced by Gini impurity
 \deqn{g(X):=1-\sum_x p_x^2,}
@@ -70,6 +92,8 @@ It does not possess most of elegant properties of mutual information, yet values
 In a present version, praznik includes \code{\link{impScores}} for generating values of \eqn{G} for all features (an analog of \code{\link{miScores}}, as well as \code{\link{JIM}}, a Gini gain-based feature selection method otherwise identical to \code{\link{JMI}}.
 }
 \references{
+"Praznik: High performance information-based feature selection" M.B. Kursa SoftwareX (2021).
+
 "Conditional Likelihood Maximisation: A Unifying Framework for Information Theoretic Feature Selection" G. Brown et al. JMLR (2012).
 }
 \seealso{

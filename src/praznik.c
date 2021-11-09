@@ -31,6 +31,7 @@
 #include "jmi.h"
 #include "jmim.h"
 #include "njmim.h"
+#include "jmi3.h"
 
 //Gini impurity based
 
@@ -41,7 +42,7 @@
 #include "mis.h"
 #include "cmis.h"
 #include "jmis.h"
-#include "maxjmis.h"
+#include "minmaxs.h"
 #include "ims.h"
 #include "hs.h"
 #include "trips.h"
@@ -64,6 +65,7 @@ static const R_CallMethodDef R_CallDef[]={
  CALLDEF(C_CMIM,4),
  CALLDEF(C_CMI,4),
  CALLDEF(C_JMI,4),
+ CALLDEF(C_JMI3,4),
  CALLDEF(C_DISR,4),
  CALLDEF(C_JMIM,4),
  CALLDEF(C_NJMIM,4),
@@ -74,7 +76,7 @@ static const R_CallMethodDef R_CallDef[]={
  CALLDEF(C_jmi,4),
  CALLDEF(C_njmi,4),
  CALLDEF(C_max_jmi,3),
- CALLDEF(C_max_cmi,3),
+ CALLDEF(C_minmax_cmi,3),
  CALLDEF(C_cmi,4),
  CALLDEF(C_cmiMatrix,4),
  CALLDEF(C_cmiMatrix2,3),

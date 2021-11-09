@@ -5,7 +5,7 @@ X$const<-factor(rep(1,150))
 X$tri<-factor(rep(1:3,50))
 Y<-iris$Species
 list(X=X,Y=Y,k=4)->input
-c("CMI","MIM","JMIM","NJMIM","JMI","DISR","CMIM","MRMR")->algos
+c("CMI","MIM","JMIM","NJMIM","JMI","JMI3","DISR","CMIM","MRMR")->algos
 
 for(algo in algos){
  test_that(sprintf("Native %s works like pure %s",algo,algo),{

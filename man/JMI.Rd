@@ -44,5 +44,5 @@ data(MadelonD)
 JMI(MadelonD$X,MadelonD$Y,20)
 }
 \references{
-"Data Visualization and Feature Selection: New Algorithms for Nongaussian Data H. Yang and J. Moody, NIPS (1999)
+"Data Visualization and Feature Selection: New Algorithms for Nongaussian Data" H. Yang and J. Moody, NIPS (1999)
 }

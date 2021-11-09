@@ -1,3 +1,8 @@
+Changes in 10.0:
+ - JMI3 filter.
+ - Fixed race condition in min/max CMI scorers.
+ - Link to the publication in SoftwareX.
+
 Changes in 9.0:
  - Maximal pairwise JMI scorer added.
  - Extreme pairwise CMI scorers added.
