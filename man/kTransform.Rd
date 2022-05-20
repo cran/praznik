@@ -20,5 +20,5 @@ Kendall transformation
 kTransform(data.frame(Asc=1:3,Desc=3:1,Vsh=c(2,1,2)))
 }
 \references{
-Kendall transformation M.B. Kursa, arXiv:2006.15991 (2020).
+"Kendall transformation brings a robust categorical representation of ordinal data" M.B. Kursa. SciRep 12, 8341 (2022).
 }

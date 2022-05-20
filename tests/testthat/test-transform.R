@@ -1,5 +1,3 @@
-context("test-transform.R")
-
 test_that("Kendall transformation behaves properly",{
  for(n in 5:10){
   x<-runif(n)

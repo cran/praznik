@@ -1,5 +1,3 @@
-context("test-tools.R")
-
 test_that("joinf",{
  joinf(
   c(T,F,T,F,F),

@@ -1,5 +1,3 @@
-context("test-native-pure.R")
-
 data.frame(lapply(iris[,-5],cut,10))->X
 X$const<-factor(rep(1,150))
 X$tri<-factor(rep(1:3,50))

@@ -1,5 +1,3 @@
-context("test-matrix.R")
-
 pureMiMatrix<-function(X,zeroDiag=TRUE){
  sapply(1:ncol(X),function(e) miScores(X,X[,e]))->ans
  if(zeroDiag) diag(ans)<-0

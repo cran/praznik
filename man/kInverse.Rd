@@ -27,5 +27,5 @@ This function cannot assert that the order is correct.
 kInverse(kTransform(1:7))
 }
 \references{
-Kendall transformation M.B. Kursa, arXiv:2006.15991 (2020).
+"Kendall transformation brings a robust categorical representation of ordinal data" M.B. Kursa. SciRep 12, 8341 (2022).
 }

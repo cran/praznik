@@ -1,3 +1,6 @@
+Changes in 11.0:
+ - Link to publication in Scientific Reports.
+
 Changes in 10.0:
  - JMI3 filter.
  - Fixed race condition in min/max CMI scorers.

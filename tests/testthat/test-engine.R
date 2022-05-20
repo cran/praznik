@@ -1,5 +1,3 @@
-context("test-engine.R")
-
 pureMutinfo<-function(a,b){
  table(a,b)->tab
  matrix(rowSums(tab),nrow=nrow(tab),ncol=ncol(tab))->ca

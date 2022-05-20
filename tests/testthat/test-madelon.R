@@ -1,5 +1,3 @@
-context("test-madelon.R")
-
 data(MadelonD)
 
 set.seed(17)

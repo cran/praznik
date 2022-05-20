@@ -1,5 +1,3 @@
-context("test-input.R")
-
 test_that("Crazy decision works",{
  data.frame(A=factor(rep(1:2,each=20)))->X
  rep(c(TRUE,FALSE),each=20)->Y

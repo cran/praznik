@@ -83,7 +83,7 @@
 #' It does not possess most of elegant properties of mutual information, yet values of both are usually highly correlated; moreover, Gini gain is computationally easier to calculate, hence it often replaces MI in performance-sensitive applications, like optimising splits in decision trees.
 #'
 #' In a present version, praznik includes \code{\link{impScores}} for generating values of \eqn{G} for all features (an analog of \code{\link{miScores}}, as well as \code{\link{JIM}}, a Gini gain-based feature selection method otherwise identical to \code{\link{JMI}}.
-#' @references "Praznik: High performance information-based feature selection" M.B. Kursa SoftwareX (2021).
+#' @references "Praznik: High performance information-based feature selection" M.B. Kursa. SoftwareX 16, 100819 (2021).
 #' @references "Conditional Likelihood Maximisation: A Unifying Framework for Information Theoretic Feature Selection" G. Brown et al. JMLR (2012).
 "_PACKAGE"
 
