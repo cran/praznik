@@ -34,7 +34,7 @@ SEXP C_max_jmi(SEXP X,SEXP Y,SEXP Threads){
   }
  }
  //Copy attribute names
- if(isFrame(X))
+ if(isDataFrame(X))
   setAttrib(Ans,R_NamesSymbol,getAttrib(X,R_NamesSymbol));
 
  UNPROTECT(1);
@@ -88,7 +88,7 @@ SEXP C_minmax_cmi(SEXP X,SEXP Y,SEXP Threads){
   }
  }
  //Copy attribute names
- if(isFrame(X)){
+ if(isDataFrame(X)){
   SEXP dimnames=PROTECT(allocVector(VECSXP,2));
   SET_VECTOR_ELT(dimnames,0,R_NilValue);
   SET_VECTOR_ELT(dimnames,1,getAttrib(X,R_NamesSymbol));

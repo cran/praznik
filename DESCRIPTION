@@ -1,8 +1,8 @@
 Package: praznik
 Type: Package
 Title: Tools for Information-Based Feature Selection and Scoring
-Version: 11.0.0
-Depends: R (>= 2.10)
+Version: 12.0.0
+Depends: R (>= 4.5.0)
 Authors@R: c(
   person(
    c("Miron","B."),"Kursa",
@@ -16,13 +16,13 @@ Description: A toolbox of fast, native and parallel implementations of various i
  Contains, among other, minimum redundancy maximal relevancy ('mRMR') method by Peng, Long and Ding (2005) <doi:10.1109/TPAMI.2005.159>; joint mutual information ('JMI') method by Yang and Moody (1999) <https://papers.nips.cc/paper/1779-data-visualization-and-feature-selection-new-algorithms-for-nongaussian-data>; double input symmetrical relevance ('DISR') method by Meyer and Bontempi (2006) <doi:10.1007/11732242_9> as well as joint mutual information maximisation ('JMIM') method by Bennasar, Hicks and Setchi (2015) <doi:10.1016/j.eswa.2015.07.007>.
 BugReports: https://gitlab.com/mbq/praznik/-/issues
 URL: https://gitlab.com/mbq/praznik
-Suggests: testthat (>= 3.0.0)
-Config/testthat/edition: 3
+Suggests: tinytest
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 NeedsCompilation: yes
-Packaged: 2022-05-20 14:57:31 UTC; mbq
-Author: Miron B. Kursa [aut, cre] (<https://orcid.org/0000-0001-7672-648X>)
+Packaged: 2025-11-10 18:02:41 UTC; mbq
+Author: Miron B. Kursa [aut, cre] (ORCID:
+    <https://orcid.org/0000-0001-7672-648X>)
 Maintainer: Miron B. Kursa <m@mbq.me>
 Repository: CRAN
-Date/Publication: 2022-05-20 15:30:01 UTC
+Date/Publication: 2025-11-11 06:10:12 UTC

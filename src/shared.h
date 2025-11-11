@@ -61,7 +61,7 @@ int *convertSEXP(struct ht *ht,int n,SEXP in,int *nout){
 
 void prepareInput(SEXP X,SEXP Y,SEXP K,SEXP Threads,struct ht ***ht,int *n,int *m,int *k,int **y,int *ny,int ***x,int **nx,int *nt){
  int frame;
- if(isFrame(X)){
+ if(isDataFrame(X)){
   frame=1;
   *m=length(X);
   if(*m==0) error("Cannot select from a data.frame without columns");
@@ -215,7 +215,7 @@ SEXP finishAns(int k,SEXP Ans,SEXP X){
  }
  //X.. A data.frame? Does it have names?
  SEXP Xn=getAttrib(X,R_NamesSymbol);
- if(isFrame(X) && !isNull(Xn) && (k>0)){
+ if(isDataFrame(X) && !isNull(Xn) && (k>0)){
   //Copy names into names of scores and selection
   SEXP An; PROTECT(An=allocVector(STRSXP,k));
   int *idx=INTEGER(VECTOR_ELT(Ans,0));

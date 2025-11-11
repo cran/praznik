@@ -18,7 +18,7 @@ SEXP C_mi(SEXP X,SEXP Y,SEXP Threads){
   }
  }
  //Copy attribute names
- if(isFrame(X))
+ if(isDataFrame(X))
   setAttrib(Ans,R_NamesSymbol,getAttrib(X,R_NamesSymbol));
 
  UNPROTECT(1);
@@ -64,7 +64,7 @@ SEXP miMatrix(SEXP X,SEXP Diag,SEXP Threads,enum nrm_mode mode){
  }
 
  //Copy attribute names into both dimensions
- if(isFrame(X)){
+ if(isDataFrame(X)){
   SEXP dimnames=PROTECT(allocVector(VECSXP,2));
   SET_VECTOR_ELT(dimnames,0,getAttrib(X,R_NamesSymbol));
   SET_VECTOR_ELT(dimnames,1,getAttrib(X,R_NamesSymbol));

@@ -34,7 +34,7 @@ SEXP C_cmi(SEXP X,SEXP Y,SEXP Z,SEXP Threads){
   }
  }
  //Copy attribute names
- if(isFrame(X))
+ if(isDataFrame(X))
   setAttrib(Ans,R_NamesSymbol,getAttrib(X,R_NamesSymbol));
  
  UNPROTECT(1);
@@ -87,7 +87,7 @@ SEXP C_cmiMatrix(SEXP X,SEXP Z,SEXP Diag,SEXP Threads){
  }
 
  //Copy attribute names into both dimensions
- if(isFrame(X)){
+ if(isDataFrame(X)){
   SEXP dimnames=PROTECT(allocVector(VECSXP,2));
   SET_VECTOR_ELT(dimnames,0,getAttrib(X,R_NamesSymbol));
   SET_VECTOR_ELT(dimnames,1,getAttrib(X,R_NamesSymbol));
@@ -138,7 +138,7 @@ SEXP C_cmiMatrix2(SEXP X,SEXP Y,SEXP Threads){
  }
 
  //Copy attribute names into both dimensions
- if(isFrame(X)){
+ if(isDataFrame(X)){
   SEXP dimnames=PROTECT(allocVector(VECSXP,2));
   SET_VECTOR_ELT(dimnames,0,getAttrib(X,R_NamesSymbol));
   SET_VECTOR_ELT(dimnames,1,getAttrib(X,R_NamesSymbol));

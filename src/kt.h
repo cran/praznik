@@ -62,7 +62,7 @@ SEXP C_kt(SEXP X){
  }
 
  //TODO: Add lists one day?
- if(isFrame(X)){
+ if(isDataFrame(X)){
   if(length(X)<1) error("Data frame with no columns");
   int n=length(VECTOR_ELT(X,0));
   if(n<2) error("Data frame with less than two rows");
@@ -86,7 +86,7 @@ SEXP C_kt(SEXP X){
 }
 
 SEXP C_rkt(SEXP X){
- if(isList(X)||isFrame(X)) error("Invalid input, should be a single vector");
+ if(isList(X)||isDataFrame(X)) error("Invalid input, should be a single vector");
  int m=length(X);
  if(m<2) error("Input too short");
  int n=ceil(sqrt(m));

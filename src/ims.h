@@ -18,7 +18,7 @@ SEXP C_im(SEXP X,SEXP Y,SEXP Threads){
   }
  }
  //Copy attribute names
- if(isFrame(X))
+ if(isDataFrame(X))
   setAttrib(Ans,R_NamesSymbol,getAttrib(X,R_NamesSymbol));
  
  UNPROTECT(1);

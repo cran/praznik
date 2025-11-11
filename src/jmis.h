@@ -30,7 +30,7 @@ SEXP jmi(SEXP X,SEXP Y,SEXP Z,SEXP Threads,int nrm){
   }
  }
  //Copy attribute names
- if(isFrame(X))
+ if(isDataFrame(X))
   setAttrib(Ans,R_NamesSymbol,getAttrib(X,R_NamesSymbol));
 
  UNPROTECT(1);
@@ -87,7 +87,7 @@ SEXP jmiMatrix(SEXP X,SEXP W,SEXP Diag,SEXP Threads,int nrm){
  }
 
  //Copy attribute names into both dimensions
- if(isFrame(X)){
+ if(isDataFrame(X)){
   SEXP dimnames=PROTECT(allocVector(VECSXP,2));
   SET_VECTOR_ELT(dimnames,0,getAttrib(X,R_NamesSymbol));
   SET_VECTOR_ELT(dimnames,1,getAttrib(X,R_NamesSymbol));

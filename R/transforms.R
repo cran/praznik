@@ -34,3 +34,33 @@ kInverse<-function(x){
   else stop("Factor does not seem to be a Kendall-transformed variable")
  rank(colSums(.Call(C_rkt,x),na.rm=TRUE))
 }
+
+#' Top-scoring pairs transformation
+#'
+#' Applies a top-scoring pairs transformation, that is creates \eqn{m\cdot (m-1)/2} logical features, for each two-element subset of original features,
+#' composed of \code{TRUE} when the value of the first is larger or equal than in the second and \code{FALSE} otherwise (first and second here is according to the order of features in input).
+#'
+#' This transformation can be used to recreate top-scoring pairs methods using information theory concepts, for instance using \code{\link{MIM}}.
+#' The main gain form TSP is that it is resilient to calibration errors, in particular some sample batch biases, it also generates a robust and parameter-less discrete representation of the continuous input.
+#' It is lossy, however, and the generated scores for feature pairs may be hard for interpretation; the inflation of feature count can also pose practical problems, which is a reason why this function offers a way to efficiently and randomly under-sample the output.
+#'
+#' For TSP to work well, it is crucial that input features have approximately identical distribution, so that the output features would have enough entropy to be informative given some decision or when compared with each other; to this end, re-scaling may be required, for instance with \code{\link{scale}}.
+#' @param x Data.frame to be converted; has to be composed of at least two features of a single type (to be comparable).
+#' @param sep Separator string used to join original feature names to generate names for transformed features. 
+#'  Can be set to \code{NULL} to generate generic names instead, which is faster.
+#' @param sample A number of features to generate.
+#'  If set, the function generates only a random subset out of all possible \eqn{m\cdot (m-1)/2} feature pairs.
+#' @param check.names Passed to the underlying call to \code{\link{data.frame}}; if set to \code{TRUE}, performs a coercion of feature names.
+#' @return A logical \code{data.frame}.
+#' @note \code{NA}s are accepted and treated as incomparable values.
+#' @examples 
+#' tspTransform(data.frame(a=1:3,b=1:3,c=rep(2,3)),sep='>=')
+#' @examples
+#' #Convering iris data
+#' tspIris<-tspTransform(data.frame(scale(iris[,-5])))
+#' #Feature selection
+#' MIM(tspIris,iris$Species)
+#' @export
+tspTransform<-function(x,sep='__',sample,check.names=FALSE)
+ data.frame(.Call(C_tsp,x,sep,if(missing(sample)) 0 else sample),check.names=check.names)
+

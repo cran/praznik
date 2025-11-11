@@ -1,15 +1,11 @@
 # Pure R implementations of selection methods 
 
-#' @importFrom stats setNames
-#' @importFrom utils tail
-
-
 pureMIM<-function(X,Y,k=3){
  miScores(X,Y)->mim
  sort(mim,decreasing=TRUE)[1:k]->ans
  ans[ans>0]->ans
  list(
-  selection=setNames(match(names(ans),names(X)),names(ans)),
+  selection=stats::setNames(match(names(ans),names(X)),names(ans)),
   score=ans
  )
 }
@@ -37,8 +33,8 @@ pureCMIM<-function(X,Y,k=3){
   fscores<-c(fscores,max(scores))
  }
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
@@ -64,8 +60,8 @@ pureJMIM<-function(X,Y,k=3){
   fscores<-c(fscores,max(scores))
  }
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
@@ -91,8 +87,8 @@ pureNJMIM<-function(X,Y,k=3){
   fscores<-c(fscores,max(scores))
  }
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
@@ -115,8 +111,8 @@ pureCMI<-function(X,Y,k=3){
   X<-X[,-which.max(ascores),drop=FALSE]
  }
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
@@ -137,8 +133,8 @@ pureJMI<-function(X,Y,k=3){
   fscores<-c(fscores,max(scores))
  }
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
@@ -174,8 +170,8 @@ pureJMI3<-function(X,Y,k=3){
  }
  selection<-c(names(U),names(W))
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
@@ -187,10 +183,10 @@ pureMRMR<-function(X,Y,k=3){
  selection<-names(which.max(rel))
  fscores<-max(rel)
  if(k>1) for(e in 1:(k-1)){
-  joinf(X[,tail(selection,1)])->x
-  rel[colnames(X)!=tail(selection,1)]->rel
-  red[colnames(X)!=tail(selection,1)]->red
-  X[,colnames(X)!=tail(selection,1),drop=FALSE]->X
+  joinf(X[,utils::tail(selection,1)])->x
+  rel[colnames(X)!=utils::tail(selection,1)]->rel
+  red[colnames(X)!=utils::tail(selection,1)]->red
+  X[,colnames(X)!=utils::tail(selection,1),drop=FALSE]->X
 
   nred<-miScores(X,x)
   red<-red+nred;
@@ -200,8 +196,8 @@ pureMRMR<-function(X,Y,k=3){
   fscores<-c(fscores,max(scores))
  }
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
@@ -213,9 +209,9 @@ pureDISR<-function(X,Y,k=3){
  fscores<-max(ascores)
  rep(0,ncol(X))->scores
  if(k>1) for(e in 1:(k-1)){
-  joinf(X[,tail(selection,1)])->x
-  scores[colnames(X)!=tail(selection,1)]->scores
-  X[,colnames(X)!=tail(selection,1),drop=FALSE]->X
+  joinf(X[,utils::tail(selection,1)])->x
+  scores[colnames(X)!=utils::tail(selection,1)]->scores
+  X[,colnames(X)!=utils::tail(selection,1),drop=FALSE]->X
   
   scores<-scores+njmiScores(X,Y,x)
 
@@ -223,8 +219,8 @@ pureDISR<-function(X,Y,k=3){
   fscores<-c(fscores,max(scores))
  }
  list(
-  selection=setNames(match(selection,nX),selection),
-  score=setNames(fscores,selection)
+  selection=stats::setNames(match(selection,nX),selection),
+  score=stats::setNames(fscores,selection)
  )
 }
 
