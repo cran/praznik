@@ -1,3 +1,6 @@
+Changes in 13.0:
+ - Fixed allocation error in JMI3.
+
 Changes in 12.0:
  - Replaces isFrame with isDataFrame.
  - Updated CITATION file.

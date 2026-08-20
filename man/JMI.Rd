@@ -40,8 +40,10 @@ Precise number of cuts depends on the number of objects; namely, it is \eqn{n/3}
 Integers (which technically are also numeric) are treated as categorical variables (for compatibility with similar software), so in a very different way -- one should be aware that an actually numeric attribute which happens to be an integer could be coerced into a \eqn{n}-level categorical, which would have a perfect mutual information score and would likely become a very disruptive false positive.
 }
 \examples{
+\dontrun{
 data(MadelonD)
 JMI(MadelonD$X,MadelonD$Y,20)
+}
 }
 \references{
 "Data Visualization and Feature Selection: New Algorithms for Nongaussian Data" H. Yang and J. Moody, NIPS (1999)

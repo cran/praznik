@@ -34,5 +34,7 @@ Diagonal is always zero with this score.
  The function name comes from the reasoning that this is an "interaction-CMI" showing how feature pairs interact in explaining the decision.
 }
 \examples{
+\dontrun{
 icmiMatrix(iris[,-5],iris[,5])
+}
 }

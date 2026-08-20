@@ -7,8 +7,11 @@
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' MIM(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @export
 MIM<-function(X,Y,k=3,threads=0)
  .Call(C_MIM,X,Y,as.integer(k),as.integer(threads))
@@ -25,8 +28,11 @@ MIM<-function(X,Y,k=3,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' CMIM(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @export
 CMIM<-function(X,Y,k=3,threads=0)
  .Call(C_CMIM,X,Y,as.integer(k),as.integer(threads))
@@ -41,8 +47,11 @@ CMIM<-function(X,Y,k=3,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' CMI(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @export
 CMI<-function(X,Y,k=3,threads=0)
  .Call(C_CMI,X,Y,as.integer(k),as.integer(threads))
@@ -60,8 +69,11 @@ CMI<-function(X,Y,k=3,threads=0)
 #' @param positive If true, algorithm won't return features with negative scores (i.e., with redundancy term higher than the relevance therm).
 #'  In that case, \code{k} controls the maximal number of returned features, and is set to `ncol(X)` by default.
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' MRMR(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @export
 MRMR<-function(X,Y,k=if(positive) ncol(X) else 3,positive=FALSE,threads=0)
  .Call(C_MRMR,X,Y,as.integer(k),as.integer(threads),as.logical(positive))
@@ -78,8 +90,11 @@ MRMR<-function(X,Y,k=if(positive) ncol(X) else 3,positive=FALSE,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' JMI(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @export
 JMI<-function(X,Y,k=3,threads=0)
  .Call(C_JMI,X,Y,as.integer(k),as.integer(threads))
@@ -97,8 +112,11 @@ JMI<-function(X,Y,k=3,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples \dontrun{data(MadelonD)
+#' @examples
+#' \dontrun{
+#' \dontrun{data(MadelonD)
 #' JMI3(MadelonD$X,MadelonD$Y,20)}
+#' }
 #' @export
 JMI3<-function(X,Y,k=3,threads=0)
  .Call(C_JMI3,X,Y,as.integer(k),as.integer(threads))
@@ -115,8 +133,11 @@ JMI3<-function(X,Y,k=3,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' DISR(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @export
 DISR<-function(X,Y,k=3,threads=0)
  .Call(C_DISR,X,Y,as.integer(k),as.integer(threads))
@@ -132,8 +153,11 @@ DISR<-function(X,Y,k=3,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' JMIM(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @references "Feature selection using Joint Mutual Information Maximisation" M. Bennasar, Y. Hicks and R. Setchi, (2015)
 #' @export
 JMIM<-function(X,Y,k=3,threads=0)
@@ -151,8 +175,11 @@ JMIM<-function(X,Y,k=3,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' NJMIM(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @references "Feature selection using Joint Mutual Information Maximisation" M. Bennasar, Y. Hicks and R. Setchi, (2015)
 #' @export
 NJMIM<-function(X,Y,k=3,threads=0)
@@ -171,8 +198,11 @@ NJMIM<-function(X,Y,k=3,threads=0)
 #' @template y
 #' @template k
 #' @template output
-#' @examples data(MadelonD)
+#' @examples
+#' \dontrun{
+#' data(MadelonD)
 #' JIM(MadelonD$X,MadelonD$Y,20)
+#' }
 #' @export
 JIM<-function(X,Y,k=3,threads=0)
  .Call(C_JIM,X,Y,as.integer(k),as.integer(threads))

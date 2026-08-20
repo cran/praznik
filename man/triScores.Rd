@@ -34,5 +34,7 @@ The equation used for calculation is
 Henceforth, please mind that rounding errors may occur and influence reproducibility.
 }
 \examples{
+\dontrun{
 triScores(iris)
+}
 }

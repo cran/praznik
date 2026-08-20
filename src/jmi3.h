@@ -8,7 +8,7 @@ SEXP C_JMI3(SEXP X,SEXP Y,SEXP K,SEXP Threads){
  if(bs==0) return(makeAns(0,NULL,NULL));
 
  //Hold pointers to selected features
- int **u=(int**)R_alloc(sizeof(int*),(k<=2)?1:(k-2));
+ int **u=(int**)R_alloc(sizeof(int*),(k<=2)?1:(k-1));
 
  //Save selected X as W and discard from further consideration
  int *w=x[bi],nw=nx[bi]; x[bi]=NULL;

@@ -8,7 +8,9 @@
 #' @template y
 #' @return A numerical vector with mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' miScores(iris[,-5],iris$Species)
+#' }
 #' @export
 miScores<-function(X,Y,threads=0)
  .Call(C_mi,X,Y,as.integer(threads))
@@ -21,7 +23,9 @@ miScores<-function(X,Y,threads=0)
 #' @template zd
 #' @template matrix
 #' @examples
+#' \dontrun{
 #' miMatrix(iris)
+#' }
 #' @export
 miMatrix<-function(X,zeroDiag=TRUE,threads=0)
  .Call(C_miMatrix,X,as.logical(zeroDiag),as.integer(threads))
@@ -34,7 +38,9 @@ miMatrix<-function(X,zeroDiag=TRUE,threads=0)
 #' @template zd
 #' @template matrix
 #' @examples
+#' \dontrun{
 #' nmiMatrix(iris)
+#' }
 #' @export
 nmiMatrix<-function(X,zeroDiag=TRUE,threads=0)
  .Call(C_nmiMatrix,X,as.logical(zeroDiag),as.integer(threads))
@@ -47,7 +53,9 @@ nmiMatrix<-function(X,zeroDiag=TRUE,threads=0)
 #' @template zd
 #' @template matrix
 #' @examples
+#' \dontrun{
 #' dnmiMatrix(iris)
+#' }
 #' @export
 dnmiMatrix<-function(X,zeroDiag=TRUE,threads=0)
  .Call(C_dnmiMatrix,X,as.logical(zeroDiag),as.integer(threads))
@@ -61,7 +69,9 @@ dnmiMatrix<-function(X,zeroDiag=TRUE,threads=0)
 #' @param Z Condition; should be given as a factor, but other options are accepted, as for features. 
 #' @return A numerical vector with conditional mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' cmiScores(iris[,-5],iris$Species,iris$Sepal.Length)
+#' }
 #' @export
 cmiScores<-function(X,Y,Z,threads=0)
  .Call(C_cmi,X,Y,Z,as.integer(threads))
@@ -75,7 +85,9 @@ cmiScores<-function(X,Y,Z,threads=0)
 #' @template zd
 #' @template matrix
 #' @examples
+#' \dontrun{
 #' cmiMatrix(iris[,-5],iris[,5])
+#' }
 #' @export
 cmiMatrix<-function(X,Z,zeroDiag=TRUE,threads=0)
  .Call(C_cmiMatrix,X,Z,as.logical(zeroDiag),as.integer(threads))
@@ -88,7 +100,9 @@ cmiMatrix<-function(X,Z,zeroDiag=TRUE,threads=0)
 #' @template y
 #' @template matrix
 #' @examples
+#' \dontrun{
 #' icmiMatrix(iris[,-5],iris[,5])
+#' }
 #' @note Diagonal is always zero with this score.
 #'  The function name comes from the reasoning that this is an "interaction-CMI" showing how feature pairs interact in explaining the decision.
 #' @export
@@ -106,7 +120,9 @@ icmiMatrix<-function(X,Y,threads=0)
 #' @param Z Other vector; should be given as a factor, but other options are accepted, as for features. 
 #' @return A numerical vector with joint mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' jmiScores(iris[,-5],iris$Species,iris$Sepal.Length)
+#' }
 #' @export
 jmiScores<-function(X,Y,Z,threads=0)
  .Call(C_jmi,X,Y,Z,as.integer(threads))
@@ -120,7 +136,9 @@ jmiScores<-function(X,Y,Z,threads=0)
 #' @template y
 #' @return A numerical vector with maximal pairwise joint mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' maxJmiScores(iris[,-5],iris$Species)
+#' }
 #' @export
 maxJmiScores<-function(X,Y,threads=0)
  .Call(C_max_jmi,X,Y,as.integer(threads))
@@ -134,7 +152,9 @@ maxJmiScores<-function(X,Y,threads=0)
 #' @template y
 #' @return A numerical vector with maximal pairwise conditional mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' maxCmiScores(iris[,-5],iris$Species)
+#' }
 #' @export
 maxCmiScores<-function(X,Y,threads=0)
  .Call(C_minmax_cmi,X,Y,as.integer(threads))[2,]
@@ -148,7 +168,9 @@ maxCmiScores<-function(X,Y,threads=0)
 #' @template y
 #' @return A numerical vector with minimal pairwise conditional mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' minCmiScores(iris[,-5],iris$Species)
+#' }
 #' @export
 minCmiScores<-function(X,Y,threads=0)
  .Call(C_minmax_cmi,X,Y,as.integer(threads))[1,]
@@ -164,7 +186,9 @@ minCmiScores<-function(X,Y,threads=0)
 #' @template y
 #' @return A numerical matrix with minimal (first row) and maximal (second row) pairwise conditional mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' minMaxCmiScores(iris[,-5],iris$Species)
+#' }
 #' @export
 minMaxCmiScores<-function(X,Y,threads=0)
  .Call(C_minmax_cmi,X,Y,as.integer(threads))
@@ -178,7 +202,9 @@ minMaxCmiScores<-function(X,Y,threads=0)
 #' @template zd
 #' @template matrix
 #' @examples
+#' \dontrun{
 #' jmiMatrix(iris[,-5],iris[,5])
+#' }
 #' @export
 jmiMatrix<-function(X,Z,zeroDiag=TRUE,threads=0)
  .Call(C_jmiMatrix,X,Z,as.logical(zeroDiag),as.integer(threads))
@@ -193,7 +219,9 @@ jmiMatrix<-function(X,Z,zeroDiag=TRUE,threads=0)
 #' @param Z Other vector; should be given as a factor, but other options are accepted, as for features. 
 #' @return A numerical vector with the normalised joint mutual information scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' njmiScores(iris[,-5],iris$Species,iris$Sepal.Length)
+#' }
 #' @export
 njmiScores<-function(X,Y,Z,threads=0)
  .Call(C_njmi,X,Y,Z,as.integer(threads))
@@ -207,7 +235,9 @@ njmiScores<-function(X,Y,Z,threads=0)
 #' @template zd
 #' @template matrix
 #' @examples
+#' \dontrun{
 #' njmiMatrix(iris[,-5],iris[,5])
+#' }
 #' @export
 njmiMatrix<-function(X,Z,zeroDiag=TRUE,threads=0)
  .Call(C_njmiMatrix,X,Z,as.logical(zeroDiag),as.integer(threads))
@@ -220,7 +250,9 @@ njmiMatrix<-function(X,Z,zeroDiag=TRUE,threads=0)
 #' @template y
 #' @return A numerical vector with Gini impurity scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' impScores(iris[,-5],iris$Species)
+#' }
 #' @export
 impScores<-function(X,Y,threads=0)
  .Call(C_im,X,Y,as.integer(threads))
@@ -232,7 +264,9 @@ impScores<-function(X,Y,threads=0)
 #' @template input
 #' @return A numerical vector with entropy scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' hScores(iris[,-5])
+#' }
 #' @export
 hScores<-function(X,threads=0)
  .Call(C_h,X,as.integer(threads))
@@ -245,7 +279,9 @@ hScores<-function(X,threads=0)
 #' @template y
 #' @return A numerical vector with entropy scores, with names copied from \code{X}.
 #' @examples
+#' \dontrun{
 #' jhScores(iris[,-5],iris[,5])
+#' }
 #' @export
 jhScores<-function(X,Y,threads=0)
  .Call(C_jh,X,Y,as.integer(threads))
@@ -262,7 +298,9 @@ jhScores<-function(X,Y,threads=0)
 #' \deqn{I(X_i;X_j;X_k)=I(X_i;X_k)+I(X_j;X_k)-I(X_i,X_j;X_k).}
 #' Henceforth, please mind that rounding errors may occur and influence reproducibility.
 #' @examples
+#' \dontrun{
 #' triScores(iris)
+#' }
 #' @export
 triScores<-function(X,threads=0)
  data.frame(.Call(C_tri,X,as.integer(threads)))

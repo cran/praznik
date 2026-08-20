@@ -100,11 +100,15 @@ In a present version, praznik includes \code{\link{impScores}} for generating va
 Useful links:
 \itemize{
   \item \url{https://gitlab.com/mbq/praznik}
-  \item Report bugs at \url{https://gitlab.com/mbq/praznik/-/issues}
 }
 
 }
 \author{
 \strong{Maintainer}: Miron B. Kursa \email{m@mbq.me} (\href{https://orcid.org/0000-0001-7672-648X}{ORCID})
+
+Authors:
+\itemize{
+  \item Miron B. Kursa \email{m@mbq.me} (\href{https://orcid.org/0000-0001-7672-648X}{ORCID})
+}
 
 }
